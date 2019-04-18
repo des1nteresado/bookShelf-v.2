@@ -63,6 +63,22 @@ namespace FirstApp.Controllers
             return "<h2>Площадь треугольника с основанием " + a + " и высотой " + h + " равна " + s + "</h2>";
         }
 
+        public string GetInfo()
+        {
+            HttpContext.Response.Write("hello from response");
+            HttpContext.Response.Cookies["id"].Value = "ca-4353w";
+
+            string browser = HttpContext.Request.Browser.Browser;
+            string user_agent = HttpContext.Request.UserAgent;
+            string url = HttpContext.Request.RawUrl;
+            string ip = HttpContext.Request.UserHostAddress;
+            string id = HttpContext.Request.Cookies["id"].Value;
+            string referrer = HttpContext.Request.UrlReferrer == null ? "" : HttpContext.Request.UrlReferrer.AbsoluteUri;
+            return "<p> Cookie id: " + id + "</p><p> SessionID: " + HttpContext.Session.SessionID +
+                   "<p>Browser: " + browser + "</p><p>User-Agent: " + user_agent + "</p><p>Url запроса: " + url +
+                   "</p><p>Реферер: " + referrer + "</p><p>IP-адрес: " + ip + "</p>";
+        }
+
         public ActionResult GetHtml()
         {
             return new HtmlResult("<h2> Hello World! </h2>");
