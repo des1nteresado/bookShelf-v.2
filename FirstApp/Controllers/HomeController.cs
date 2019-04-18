@@ -27,6 +27,13 @@ namespace FirstApp.Controllers
         [HttpGet]
         public ActionResult Buy(int id)
         {
+            if (id > 1000) // Our bookshelf can save about 1000 books.
+            {
+                return Redirect("/Home/Index");
+                //   return RedirectToRoute(new { controller="Home", action="Index"});
+                //   return RedirectToAction("Square", "Home", new { a=10,h=12}); 
+                //   временная переадрессация, постоянная с Permament
+            }
             ViewBag.BookId = id;
             return View();
         }
@@ -39,6 +46,13 @@ namespace FirstApp.Controllers
             // сохраняем в бд все изменения
             db.SaveChanges();
             return getToday() + " Спасибо," + purchase.Person + ", за покупку!";
+        }
+
+        public ActionResult GetFile()
+        {
+            string filePath = Server.MapPath("~/Files/Download.js");
+            string fileType = "application/js";
+            return File(filePath, fileType);
         }
 
         public string Square()
