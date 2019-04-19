@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using FirstApp.Models;
@@ -13,10 +15,10 @@ namespace FirstApp.Controllers
         // создаем контекст данных
         BookContext db = new BookContext();
 
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
             // получаем из бд все объекты Book
-            IEnumerable<Book> books = db.Books;
+            IEnumerable<Book> books = await db.Books.ToListAsync();
             // передаем все объекты в динамическое свойство Books в ViewBag
             ViewBag.Books = books;
             // возвращаем представление
