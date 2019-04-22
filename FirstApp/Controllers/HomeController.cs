@@ -20,9 +20,11 @@ namespace FirstApp.Controllers
             // получаем из бд все объекты Book
             IEnumerable<Book> books = await db.Books.ToListAsync();
             // передаем все объекты в динамическое свойство Books в ViewBag
-            ViewBag.Books = books;
+            //ViewBag.Books = books;
             // возвращаем представление
-            return View();
+
+            //используем строго типизированное представление
+            return View(books);
         }
 
 
