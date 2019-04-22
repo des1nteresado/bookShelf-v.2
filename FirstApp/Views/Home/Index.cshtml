@@ -3,6 +3,28 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@helper BookList(IEnumerable<Book> books)
+{
+    foreach (var b in books)
+    {
+        <tr>
+            <td>
+                <p>@b.Name</p>
+            </td>
+            <td>
+                <p>@b.Author</p>
+            </td>
+            <td>
+                <p>@b.Price</p>
+            </td>
+            <td>
+                <p><a href="/Home/Buy/@b.Id">Купить</a></p>
+            </td>
+        </tr>
+    }
+}
+
 <div>
     <h3>Распродажа книг</h3>
     <table>
@@ -12,15 +34,7 @@
             <td><p>Цена</p></td>
             <td></td>
         </tr>
-        @foreach (var b in Model)
-        {
-            <tr>
-                <td><p>@b.Name</p></td>
-                <td><p>@b.Author</p></td>
-                <td><p>@b.Price</p></td>
-                <td><p><a href="/Home/Buy/@b.Id">Купить</a></p></td>
-            </tr>
-        }
+        @BookList(Model)
     </table>
 </div>
 <div>
