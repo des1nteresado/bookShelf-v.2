@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 using FirstApp.Models;
 using FirstApp.Util;
@@ -39,8 +38,8 @@ namespace FirstApp.Controllers
                 //   return RedirectToAction("Square", "Home", new { a=10,h=12}); 
                 //   временная переадрессация, постоянная с Permament
             }
-            ViewBag.BookId = id;
-            return View();
+            Purchase prhs = db.Purchases.Find(id);
+            return View(prhs);
         }
         [HttpPost]
         public string Buy(Purchase purchase)
