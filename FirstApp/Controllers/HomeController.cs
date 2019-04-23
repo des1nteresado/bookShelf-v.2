@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using FirstApp.Models;
@@ -14,15 +15,18 @@ namespace FirstApp.Controllers
         // создаем контекст данных
         BookContext db = new BookContext();
 
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(int? status)
         {
             // получаем из бд все объекты Book
             IEnumerable<Book> books = await db.Books.ToListAsync();
             // передаем все объекты в динамическое свойство Books в ViewBag
             //ViewBag.Books = books;
             // возвращаем представление
-            ViewBag.Message =
-                "Ok. This is message from partial view! But this message create in Index action method! Think about it..";
+            if (status == 1)
+            {
+                ViewBag.Message =
+                    "Ok. Book was edited. This is message from partial view! But this message create in Index action method! Think about it..";
+            }
             //используем строго типизированное представление
             return View(books);
         }
@@ -50,6 +54,30 @@ namespace FirstApp.Controllers
             // сохраняем в бд все изменения
             db.SaveChanges();
             return getToday() + " Спасибо," + purchase.Person + ", за покупку!";
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            Book book = db.Books.Find(id);
+            if (book == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(book);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Book book)
+        {
+            db.Entry(book).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home", new { status = 1 });
         }
 
         public ActionResult Partial()
