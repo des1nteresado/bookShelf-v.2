@@ -1,0 +1,29 @@
+﻿@using FirstApp.Models
+@model Book
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <ul>
+        <li>
+            @Html.LabelFor(m => m.Name, "Название книги")
+            <br />
+            @Html.EditorFor(m => m.Name)
+        </li>
+        <li>
+            @Html.LabelFor(m => m.Author, "Автор")
+            <br />
+            @Html.EditorFor(m => m.Author)
+        </li>
+        <li>
+            @Html.LabelFor(m => m.Price, "Цена")
+            <br />
+            @Html.EditorFor(m => m.Price)
+        </li>
+        <li>
+            <input type="submit" value="Send" />
+        </li>
+    </ul>
+}

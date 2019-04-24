@@ -3,7 +3,7 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<h3><a href="/Home/Add">Add new book</a></h3>
 @helper BookList(IEnumerable<Book> books)
 {
     foreach (var b in books)
@@ -21,6 +21,7 @@
             <td>
                 <p><a href="/Home/Buy/@b.Id">Купить</a></p>
                 <p><a href="/Home/Edit/@b.Id">Редактировать</a></p>
+                <p><a href="/Home/Delete/@b.Id">Удалить</a></p>
             </td>
         </tr>
     }

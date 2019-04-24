@@ -45,6 +45,20 @@ namespace FirstApp.Controllers
             Purchase prhs = db.Purchases.Find(id);
             return View(prhs);
         }
+
+        [HttpGet]
+        public ActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Add(Book book)
+        {
+            db.Books.Add(book);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
         [HttpPost]
         public string Buy(Purchase purchase)
         {
@@ -78,6 +92,29 @@ namespace FirstApp.Controllers
             db.Entry(book).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index", "Home", new { status = 1 });
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            Book b = db.Books.Find(id);
+            if (b == null)
+            {
+                return HttpNotFound();
+            }
+            return View(b);
+        }
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Book b = db.Books.Find(id);
+            if (b == null)
+            {
+                return HttpNotFound();
+            }
+            db.Books.Remove(b);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         public ActionResult Partial()
