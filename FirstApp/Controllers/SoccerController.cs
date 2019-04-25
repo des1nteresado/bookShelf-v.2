@@ -76,7 +76,6 @@ namespace FirstApp.Controllers
             return HttpNotFound();
         }
 
-
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int? id)
         {
