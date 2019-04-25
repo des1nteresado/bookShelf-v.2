@@ -208,6 +208,7 @@
     <Content Include="Views\Soccer\Delete.cshtml" />
     <Content Include="Views\Univer\Index.cshtml" />
     <Content Include="Views\Univer\Details.cshtml" />
+    <Content Include="Views\Univer\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

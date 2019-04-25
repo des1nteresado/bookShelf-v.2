@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Data.Entity;
+using System.Linq;
 using System.Web.Mvc;
 using FirstApp.Models.University;
 
@@ -21,6 +22,40 @@ namespace FirstApp.Controllers
                 return HttpNotFound();
             }
             return View(student);
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int? id)
+        {
+            Student student = db.Students.Find(id);
+            if (student == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.Courses = db.Courses.ToList();
+            return View(student);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Student student, int[] selectedCourses)
+        {
+            Student newStudent = db.Students.Find(student.Id);
+            newStudent.Name = student.Name;
+            newStudent.Surname = student.Surname;
+
+            newStudent.Courses.Clear();
+            if (selectedCourses != null)
+            {
+                //получаем выбранные курсы
+                foreach (var c in db.Courses.Where(co => selectedCourses.Contains(co.Id)))
+                {
+                    newStudent.Courses.Add(c);
+                }
+            }
+
+            db.Entry(newStudent).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
