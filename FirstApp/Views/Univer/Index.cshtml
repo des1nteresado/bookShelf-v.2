@@ -1,0 +1,30 @@
+﻿@model IEnumerable<FirstApp.Models.University.Student>
+@{
+    ViewBag.Title = "Список студентов";
+}
+
+<p>
+    @Html.ActionLink("Добавить студента", "Create")
+</p>
+<table>
+    <tr>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Surname)
+        </td>
+        <td>
+            @Html.ActionLink("Детали", "Details", new { id = item.Id })
+        </td>
+    </tr>
+    }
+</table>

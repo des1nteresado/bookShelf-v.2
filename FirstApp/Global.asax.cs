@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using FirstApp.Models;
+using FirstApp.Models.University;
 
 namespace FirstApp
 {
@@ -11,6 +12,7 @@ namespace FirstApp
         protected void Application_Start()
         {
             Database.SetInitializer(new BookDbInitializer());
+            Database.SetInitializer(new CourseDbInitializer());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
