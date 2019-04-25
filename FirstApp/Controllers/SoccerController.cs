@@ -61,5 +61,38 @@ namespace FirstApp.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult Delete(int? id)
+        {
+            if (id != null)
+            {
+                var player = db.Players.Find(id);
+                if (player != null)
+                {
+                    return View(player);
+                }
+            }
+
+            return HttpNotFound();
+        }
+
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int? id)
+        {
+            if (id != null)
+            {
+                var player = db.Players.Find(id);
+                if (player != null)
+                {
+                    db.Players.Remove(player);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+
+            return HttpNotFound();
+        }
+
     }
 }
