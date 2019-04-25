@@ -1,0 +1,19 @@
+﻿@model FirstApp.Models.Football.Player
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удаление игрока</h2>
+
+@using (Html.BeginForm())
+{
+<fieldset>
+    <p>Вы действительно хотите удалить футболиста @Html.DisplayFor(m => m.Name)?</p>
+    <p>
+        <input type="submit" value="Удалить" />
+    </p>
+    <br />
+    @Html.ActionLink("Вернуться к списку футболистов", "Index")
+</fieldset>
+}
