@@ -14,6 +14,9 @@
         <b>Фамилия</b>
         @Html.EditorFor(model => model.Surname)
         <br />
+        <b>Ср. Оценка</b>
+        @Html.EditorFor(model => model.AvMark)
+        <br />
         <b>Курсы</b>
         <br />
         @foreach (Course c in ViewBag.Courses)

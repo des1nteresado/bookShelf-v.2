@@ -42,7 +42,7 @@ namespace FirstApp.Controllers
             Student newStudent = db.Students.Find(student.Id);
             newStudent.Name = student.Name;
             newStudent.Surname = student.Surname;
-
+            newStudent.AvMark = student.AvMark;
             newStudent.Courses.Clear();
             if (selectedCourses != null)
             {

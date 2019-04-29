@@ -17,11 +17,18 @@
         @Html.DisplayFor(model => model.Surname)
     </div>
 
+    <div class="display-label"><b>Средняя оценка</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AvMark)
+    </div>
+
+
+
     <div class="display-label"><b>Курсы</b></div>
     <ul>
         @foreach (Course c in Model.Courses)
         {
-        <li>@c.Name</li>
+            <li>@c.Name</li>
         }
     </ul>
 
