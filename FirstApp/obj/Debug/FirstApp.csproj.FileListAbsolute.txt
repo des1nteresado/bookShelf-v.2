@@ -89,3 +89,6 @@ C:\Users\Даниил Чернышев\Desktop\papka\ASP.NET MVC 5 PART 2\FirstA
 C:\Users\Даниил Чернышев\Desktop\papka\ASP.NET MVC 5 PART 2\FirstApp\FirstApp\obj\Debug\FirstApp.csproj.CopyComplete
 C:\Users\Даниил Чернышев\Desktop\papka\ASP.NET MVC 5 PART 2\FirstApp\FirstApp\obj\Debug\FirstApp.dll
 C:\Users\Даниил Чернышев\Desktop\papka\ASP.NET MVC 5 PART 2\FirstApp\FirstApp\obj\Debug\FirstApp.pdb
+C:\Users\Даниил Чернышев\Desktop\papka\ASP.NET MVC 5 PART 2\FirstApp\FirstApp\obj\Debug\FirstApp.Migrations.InitialCreate.resources
+C:\Users\Даниил Чернышев\Desktop\papka\ASP.NET MVC 5 PART 2\FirstApp\FirstApp\obj\Debug\FirstApp.csproj.GenerateResource.cache
+C:\Users\Даниил Чернышев\Desktop\papka\ASP.NET MVC 5 PART 2\FirstApp\FirstApp\obj\Debug\FirstApp.Migrations.UniverMigrate.resources

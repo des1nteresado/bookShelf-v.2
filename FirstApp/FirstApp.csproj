@@ -139,6 +139,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ListHelper.cs" />
+    <Compile Include="Migrations\201904291745065_InitialCreate.cs" />
+    <Compile Include="Migrations\201904291745065_InitialCreate.Designer.cs">
+      <DependentUpon>201904291745065_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904291751444_UniverMigrate.cs" />
+    <Compile Include="Migrations\201904291751444_UniverMigrate.Designer.cs">
+      <DependentUpon>201904291751444_UniverMigrate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BookContext.cs" />
     <Compile Include="Models\BookDbInitializer.cs" />
@@ -210,7 +219,14 @@
     <Content Include="Views\Univer\Details.cshtml" />
     <Content Include="Views\Univer\Edit.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201904291745065_InitialCreate.resx">
+      <DependentUpon>201904291745065_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904291751444_UniverMigrate.resx">
+      <DependentUpon>201904291751444_UniverMigrate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
