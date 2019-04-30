@@ -152,6 +152,7 @@
     <Compile Include="Models\BookContext.cs" />
     <Compile Include="Models\BookDbInitializer.cs" />
     <Compile Include="Models\Football\Player.cs" />
+    <Compile Include="Models\Football\PlayersListViewModel.cs" />
     <Compile Include="Models\Football\SoccerContext.cs" />
     <Compile Include="Models\Football\Team.cs" />
     <Compile Include="Models\Purchase.cs" />

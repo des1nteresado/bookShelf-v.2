@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using Antlr.Runtime.Misc;
@@ -9,10 +11,39 @@ namespace FirstApp.Controllers
     public class SoccerController : Controller
     {
         SoccerContext db = new SoccerContext();
-        public ActionResult Index()
+
+
+
+        public ActionResult Index(int? team, string position)
         {
             var players = db.Players.Include(p => p.Team);
-            return View(players.ToList());
+            if (team != null && team != 0)
+            {
+                players = players.Where(p => p.TeamId == team);
+            }
+
+            if (position != "Все" && !String.IsNullOrEmpty(position))
+            {
+                players = players.Where(p => p.Position == position);
+            }
+
+            List<Team> teams = db.Teams.ToList();
+
+            PlayersListViewModel plvm = new PlayersListViewModel
+            {
+                Players = players.ToList(),
+                Teams = new SelectList(teams, "Id", "Name"),
+                Positions = new SelectList(new List<string>()
+                {
+                    "Все",
+                    "Нападающий",
+                    "Полузащитник",
+                    "Защитник",
+                    "Вратарь"
+                })
+            };
+
+            return View(plvm);
         }
 
         [HttpGet]
