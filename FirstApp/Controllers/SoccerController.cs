@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
-using Antlr.Runtime.Misc;
 using FirstApp.Models.Football;
 
 namespace FirstApp.Controllers
@@ -11,8 +10,6 @@ namespace FirstApp.Controllers
     public class SoccerController : Controller
     {
         SoccerContext db = new SoccerContext();
-
-
 
         public ActionResult Index(int? team, string position)
         {
