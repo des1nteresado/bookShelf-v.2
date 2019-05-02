@@ -220,6 +220,7 @@
     <Content Include="Views\Univer\Index.cshtml" />
     <Content Include="Views\Univer\Details.cshtml" />
     <Content Include="Views\Univer\Edit.cshtml" />
+    <Content Include="Views\Home\GetUrl.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201904291745065_InitialCreate.resx">

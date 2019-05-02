@@ -128,6 +128,11 @@ namespace FirstApp.Controllers
             return File(filePath, fileType);
         }
 
+        public ActionResult GetUrl()
+        {
+            return View();
+        }
+
         public string Square()
         {
             int a = Int32.Parse(Request.Params["a"]);

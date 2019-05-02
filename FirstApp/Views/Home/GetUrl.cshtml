@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Urls</title>
+</head>
+<body>
+    <div>
+        <a href="/Soccer/Index">tap (a)</a>
+        @Html.ActionLink("tap(html actionlink", "Index", "Soccer")
+        @Html.RouteLink("kek", new { controller = "Soccer", action = "Index" })
+        @Url.Action("Index", "Soccer")
+        @Url.RouteUrl(new { controller = "Soccer", action = "Index" })
+    </div>
+</body>
+</html>
