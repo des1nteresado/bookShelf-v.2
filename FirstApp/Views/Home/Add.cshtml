@@ -6,11 +6,17 @@
 
 @using (Html.BeginForm())
 {
+    @Html.ValidationSummary(true)
     <ul>
         <li>
-            @Html.LabelFor(m => m.Name, "Название книги")
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Name, "Название книги")
+            </div>
             <br />
-            @Html.EditorFor(m => m.Name)
+            <div class="editor-field">
+                @Html.EditorFor(m => m.Name)
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
         </li>
         <li>
             @Html.LabelFor(m => m.Author, "Автор")

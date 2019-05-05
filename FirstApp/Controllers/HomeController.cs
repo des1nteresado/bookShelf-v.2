@@ -51,11 +51,15 @@ namespace FirstApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add(Book book)
+        public ActionResult Add([Bind(Include = "Id,Name,Author,Price")] Book book)
         {
-            db.Books.Add(book);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                db.Books.Add(book);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
         }
         [HttpPost]
         public string Buy(Purchase purchase)
