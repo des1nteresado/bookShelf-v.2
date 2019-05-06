@@ -107,6 +107,7 @@ namespace FirstApp.Controllers
             }
             return View(b);
         }
+
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -138,7 +139,8 @@ namespace FirstApp.Controllers
             return View();
         }
 
-        [IndexException]
+        //[IndexException] заменим создание класса, реализацию свойств на готовый атрибут HandleError
+        [HandleError(ExceptionType = typeof(System.IndexOutOfRangeException), View = "/Content/Welcome")]
         public string Square()
         {
             int[] mas = new int[2];
