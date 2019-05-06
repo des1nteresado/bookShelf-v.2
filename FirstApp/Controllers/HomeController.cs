@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using System.Web.UI;
 using FirstApp.Filters;
 using FirstApp.Models;
 using FirstApp.Util;
@@ -15,6 +14,7 @@ namespace FirstApp.Controllers
         // создаем контекст данных
         BookContext db = new BookContext();
 
+        [OperaDetected]
         public async Task<ActionResult> Index(int? status)
         {
             // получаем из бд все объекты Book
