@@ -136,8 +136,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SoccerController.cs" />
     <Compile Include="Controllers\UniverController.cs" />
-    <Compile Include="Filters\IndexException.cs" />
-    <Compile Include="Filters\OperaDetected.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
