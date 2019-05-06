@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using FirstApp.Filters;
 using FirstApp.Models;
 using FirstApp.Util;
 
@@ -137,12 +138,12 @@ namespace FirstApp.Controllers
             return View();
         }
 
+        [IndexException]
         public string Square()
         {
-            int a = Int32.Parse(Request.Params["a"]);
-            int h = Int32.Parse(Request.Params["h"]);
-            double s = a * h / 2.0;
-            return "<h2>Площадь треугольника с основанием " + a + " и высотой " + h + " равна " + s + "</h2>";
+            int[] mas = new int[2];
+            mas[6] = 4;
+            return "ne obrabotal!";
         }
 
         public string GetInfo()
