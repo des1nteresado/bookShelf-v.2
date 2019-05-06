@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Web.UI;
 using FirstApp.Filters;
 using FirstApp.Models;
 using FirstApp.Util;
@@ -140,7 +141,7 @@ namespace FirstApp.Controllers
         }
 
         //[IndexException] заменим создание класса, реализацию свойств на готовый атрибут HandleError
-        [HandleError(ExceptionType = typeof(System.IndexOutOfRangeException), View = "/Content/Welcome")]
+        [HandleError(ExceptionType = typeof(System.IndexOutOfRangeException), View = "Index")]
         public string Square()
         {
             int[] mas = new int[2];
